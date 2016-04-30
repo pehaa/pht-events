@@ -1,0 +1,14 @@
+{
+	"name": "PeHaa Themes Events",
+	"slug": "pht-events",
+	"version": "1.0.0",
+	"download_url": "http://wp-plugins.pehaa.com/pht-events/pht-events.zip",
+	"sections": {
+		"description": "A WordPress plugin. Events custom post type.",
+		"changelog": "<strong>1.0.0</strong><p>Release</p>"
+	},
+	"homepage": "http://github.com/pehaa/pht-events",
+	"tested": "4.5",
+	"author": "PeHaa THEMES",
+	"author_homepage": "http://wptemplates.pehaa.com"
+}
