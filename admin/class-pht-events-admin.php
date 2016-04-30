@@ -133,7 +133,7 @@ class PeHaa_Themes_Events_Admin {
 			'name' => __( 'End Date', 'pht-events' ),
 			'desc' => __( 'field description (optional)', 'pht-events' ),
 			'id'   => $prefix . 'enddate',
-			'type' => 'coolab_date',
+			'type' => 'coollab_date',
 			'date_format' => 'Y-m-d'
 		);
 
