@@ -108,16 +108,19 @@ class PeHaa_Themes_Events_Public {
 
 	public function events_archive_query( $query ) {
 
-
 		if ( is_admin() ) {
 			return;
 		}
 
 		$args = array();
 		
-		if ( $query->is_post_type_archive( 'pht_event' ) ) {		
+		if ( $query->is_post_type_archive( 'pht_event' ) || $query->is_tax( 'pht_event_type' ) ) {
 
-			if ( is_year() ) {
+			if ( is_tax( 'pht_event_type' ) ) {
+
+				$args = self::pht_se_modify_events_query_basic();
+
+			}	elseif ( is_year() ) {
 				$year = $query->get( 'year' );
 
 				$args = self::pht_se_modify_year_query( $year );
@@ -260,9 +263,9 @@ class PeHaa_Themes_Events_Public {
 
 		if ( in_array( $status, array( 'upcoming', 'past' ) ) ) {
 
-			$year = gmdate('Y', current_time('timestamp'));
-			$month = gmdate('m', current_time('timestamp'));
-			$day = gmdate('j', current_time('timestamp'));
+			$year = gmdate( 'Y', current_time( 'timestamp' ) );
+			$month = gmdate( 'm', current_time( 'timestamp' ) );
+			$day = gmdate( 'j', current_time( 'timestamp' ) );
 				
 			$args = self::pht_se_modify_events_query_basic();
 

@@ -265,21 +265,45 @@ class PeHaa_Themes_Events {
 	 * @since     1.0.0
 	 */
 
-	public function register_event_post_type() {	
-				
-		if ( !class_exists( 'PeHaaThemes_Simple_Post_Types' ) ) {
-			$args = $this->event_args();
-			register_post_type( $this->key, $args );
+	public function register_event_post_type() {
+
+		$spt_option = get_option( 'pehaathemes_simple_post_types', array() );
+		
+		if ( class_exists( 'PeHaaThemes_Simple_Post_Types' ) && isset( $spt_option['post_type']['pht_event'] ) ) {
+			return;
 		}
+		if ( class_exists( 'PeHaaThemes_Simple_Post_Types' ) ) {
+			$spt_option['post_type']['pht_event'] = array(
+				'name' => 'Events',
+				'singular_name' => 'Event'
+			);
+			update_option( 'pehaathemes_simple_post_types', $spt_option );
+			return;
+		}
+		$args = $this->event_args();
+		register_post_type( $this->key, $args );
 
 	}
 
-	public function register_event_taxonomy() {	
+	public function register_event_taxonomy() {
+
+		$spt_option = get_option( 'pehaathemes_simple_post_types', array() );
 				
-		if ( !class_exists( 'PeHaaThemes_Simple_Post_Types' ) ) {
-			$args = $this->event_type_args();
-			register_taxonomy( $this->taxonomy_key, array( $this->key ), $args );
-		}	
+		if ( class_exists( 'PeHaaThemes_Simple_Post_Types' ) && isset( $spt_option['taxonomy']['pht_event_type'] ) ) {
+			return;
+		}
+		if ( class_exists( 'PeHaaThemes_Simple_Post_Types' ) ) {
+			$spt_option['taxonomy']['pht_event_type'] = array(
+				'name' => 'Event Types',
+				'singular_name' => 'Event Type',
+				'object_types' => array( 'pht_event' ),
+				'hierarchical' => 'no'
+			);
+			update_option( 'pehaathemes_simple_post_types', $spt_option );
+			return;
+		}
+		$args = $this->event_type_args();
+		register_taxonomy( $this->taxonomy_key, array( $this->key ), $args );
 
 	}
 

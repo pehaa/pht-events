@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * @link              https://github.com/pehaa/pht-events
