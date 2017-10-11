@@ -2,14 +2,14 @@
 /**
  *
  * @link              https://github.com/pehaa/pht-events
- * @since             1.1.0
+ * @since             1.0.0
  * @package           PeHaa_Themes_Events
  *
  * @wordpress-plugin
  * Plugin Name:       PeHaa Themes Events
  * Plugin URI:        http://github.com/pehaa/pht-events/
  * Description:       Adds Event custom post type and Event Type taxonomy
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            PeHaa THEMES
  * Author URI:        https://github.com/pehaa/pht-events/
  * License:           GPL-2.0+
