@@ -73,7 +73,7 @@ class PeHaa_Themes_Events {
 	public function __construct() {
 
 		$this->plugin_name = 'pht-events';
-		$this->version = '1.0.0';
+		$this->version = '1.1.0';
 		$this->key = 'pht_event';
 		$this->labels_base = array(
 			'name' => __( 'Events', 'pht-events'),

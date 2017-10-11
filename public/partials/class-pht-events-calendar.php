@@ -104,7 +104,8 @@ class PeHaa_Themes_Events_Calendar {
 		$months_of_daywithevent = get_transient( 'pht-events-calendar' );
 
 		if ( false === ( $months_of_daywithevent ) || !isset( $months_of_daywithevent[ $Month.$Y ] ) ) {
-		
+			$start_month = "{$Y}-{$Month}-{$last_day}";
+			$end_month = '{$Y}-{$Month}-01';
 			$events_request = $wpdb->prepare(
 				"SELECT event_start.meta_value as EventStartDate, 
 						event_start.post_id as ID,
@@ -113,13 +114,12 @@ class PeHaa_Themes_Events_Calendar {
 				LEFT JOIN $wpdb->posts ON event_start.post_id = $wpdb->posts.ID
 				LEFT JOIN $wpdb->postmeta as event_end ON ( event_start.post_id = event_end.post_id AND event_end.meta_key = 'pht_events_enddate' )
 				WHERE event_start.meta_key = 'pht_events_startdate'
-				AND ( ( event_start.meta_value <= '%1\$s' AND event_start.meta_value >= '%2\$s' ) OR ( event_end.meta_value <= '%1\$s' AND event_end.meta_value >= '%2\$s' ) )
-				AND $wpdb->posts.post_status = 'publish'", "{$Y}-{$Month}-{$last_day}","{$Y}-{$Month}-01"
-
+				AND ( ( event_start.meta_value <= %s AND event_start.meta_value >= %s ) OR ( event_end.meta_value <= %s AND event_end.meta_value >= %s ) )
+				AND $wpdb->posts.post_status = 'publish';", $start_month, $end_month,$start_month, $end_month
 			);
 
 			$dayswithevents = $wpdb->get_results( $events_request );
-			
+
 			$months_of_daywithevent[ $Month.$Y ] = $dayswithevents;
 			
 			set_transient( 'pht-events-calendar', $months_of_daywithevent, HOUR_IN_SECONDS );

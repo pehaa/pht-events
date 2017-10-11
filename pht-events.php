@@ -2,7 +2,7 @@
 /**
  *
  * @link              https://github.com/pehaa/pht-events
- * @since             1.0.0
+ * @since             1.1.0
  * @package           PeHaa_Themes_Events
  *
  * @wordpress-plugin

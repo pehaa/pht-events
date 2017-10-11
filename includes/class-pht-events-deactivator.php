@@ -31,6 +31,8 @@ class PeHaa_Themes_Events_Deactivator {
 	 */
 	public static function deactivate() {
 
+		delete_transient( 'pht-events-calendar' );
+
 	}
 
 }
