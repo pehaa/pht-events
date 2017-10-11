@@ -1,14 +1,14 @@
 {
 	"name": "PeHaa Themes Events",
 	"slug": "pht-events",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"download_url": "http://wp-plugins.pehaa.com/pht-events/pht-events.zip",
 	"sections": {
 		"description": "A WordPress plugin. Events custom post type.",
-		"changelog": "<strong>1.0.0</strong><p>Release</p>"
+		"changelog": "<strong>1.1.0</strong><ul><li>Fixed quotes in calendar query</li><li>Added deleting transient on plugin deactivation</li></ul><strong>1.0.0</strong><p>Release</p>"
 	},
 	"homepage": "http://github.com/pehaa/pht-events",
-	"tested": "4.5",
+	"tested": "4.8",
 	"author": "PeHaa THEMES",
 	"author_homepage": "http://wptemplates.pehaa.com"
 }
